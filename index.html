@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunright® 三效輕透防曬精華</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-deep:    #5C2060;
+    --pink-mid:     #8B3D8A;
+    --pink-soft:    #B56AB4;
+    --pink-pale:    #EDD5EC;
+    --pink-whisper: #F7EEF7;
+    --lavender:     #DDD5FF;
+    --lavender-mid: #B8A8F0;
+    --lavender-deep:#5240A8;
+    --cream:        #FCF6FB;
+    --text-dark:    #2D1A2D;
+    --text-mid:     #5C3D5C;
+    --text-light:   #9E7A9E;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(155deg, #9B4E9A 0%, #7B3580 40%, #622870 70%, #4E1F60 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,200,255,0.12) 0%, transparent 65%);
+    top: -200px; right: -200px;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(180,120,220,0.15) 0%, transparent 65%);
+    bottom: -100px; left: -100px;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .spf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 10px 32px;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 2.5rem;
+    border-radius: 40px;
+    background: rgba(255,255,255,0.12);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .cert-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .cert-pill {
+    background: rgba(255,255,255,0.15);
+    border: 0.5px solid rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.92);
+    font-size: 11px;
+    padding: 6px 16px;
+    border-radius: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-tagline {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(255,255,255,0.68);
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.2s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(22px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── STATS ── */
+  .stats-section {
+    background: linear-gradient(135deg, #7A3280 0%, #622870 50%, #4E1F60 100%);
+    padding: 5rem 2rem;
+  }
+
+  .stats-inner { max-width:900px; margin:0 auto; }
+
+  .stats-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .stats-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.12);
+    border: 0.5px solid rgba(255,255,255,0.28);
+    border-radius: 18px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.22);
+  }
+
+  .stat-num {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 2.4rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .stats-footnote {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SHARED ── */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--pink-mid);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .section-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--pink-deep);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    max-width: 560px;
+  }
+
+  .divider-rose {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink-mid), var(--lavender-mid));
+    border-radius: 2px;
+    margin: 1.25rem 0;
+  }
+
+  /* ── DEFENSE ── */
+  .defense-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .defense-card {
+    background: #fff;
+    border: 0.5px solid var(--pink-pale);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .defense-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -14px; right: 12px;
+    font-size: 5.5rem;
+    font-weight: 700;
+    color: var(--pink-pale);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .defense-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(139,61,138,0.12);
+  }
+
+  .defense-tag {
+    display: inline-block;
+    background: var(--lavender);
+    color: var(--lavender-deep);
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .defense-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem;
+    color: var(--pink-deep);
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .defense-desc {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  /* ── INGREDIENTS ── */
+  .ingredients-section {
+    background: linear-gradient(180deg, #F0E4F5 0%, #DDD5FF 100%);
+    padding: 5rem 2rem;
+  }
+
+  .ingredients-inner { max-width:900px; margin:0 auto; }
+
+  .ing-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+    margin-top: 3rem;
+  }
+
+  .ing-cell {
+    background: rgba(255,255,255,0.8);
+    border: 0.5px solid rgba(139,61,138,0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .ing-cell:hover { background: #fff; transform: translateY(-2px); }
+
+  .ing-index {
+    font-size: 11px;
+    color: var(--pink-mid);
+    font-weight: 500;
+    padding-top: 2px;
+    min-width: 20px;
+  }
+
+  .ing-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    color: var(--pink-deep);
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+
+  .ing-effect {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  /* ── TEXTURE ── */
+  .texture-section {
+    background: #fff;
+    padding: 5rem 2rem;
+  }
+
+  .texture-inner { max-width:900px; margin:0 auto; }
+
+  .texture-features {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .texture-item { text-align:center; }
+
+  .texture-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-pale), var(--lavender));
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .texture-icon svg {
+    width: 26px; height: 26px;
+    stroke: var(--pink-mid);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .texture-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: var(--pink-deep);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+
+  .texture-desc {
+    font-size: 12.5px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* ── USAGE ── */
+  .usage-section {
+    background: linear-gradient(155deg, #7A3280 0%, #622870 45%, #4E1F60 100%);
+    padding: 5rem 2rem;
+  }
+
+  .usage-inner { max-width:900px; margin:0 auto; }
+
+  .usage-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .usage-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: clamp(1.4rem,4vw,2rem);
+    color: #fff;
+    margin-bottom: 3rem;
+  }
+
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.12);
+    border: 0.5px solid rgba(255,255,255,0.28);
+    border-radius: 16px;
+    padding: 1.75rem 1.25rem;
+    transition: background 0.2s;
+  }
+
+  .step:hover { background: rgba(255,255,255,0.22); }
+
+  .step-num {
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .step-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .notices {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+  }
+
+  .notice {
+    background: rgba(255,255,255,0.08);
+    border-left: 2px solid rgba(255,255,255,0.35);
+    border-radius: 0 12px 12px 0;
+    padding: 0.75rem 1rem;
+  }
+
+  .notice-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.75;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg, #4E1F60 0%, #3A1448 100%);
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--pink-pale);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.32);
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:640px) {
+    .stats-grid       { grid-template-columns: repeat(2,1fr); }
+    .defense-grid     { grid-template-columns: 1fr; }
+    .ing-grid         { grid-template-columns: 1fr; }
+    .texture-features { grid-template-columns: 1fr; gap:1.5rem; }
+    .steps-row        { grid-template-columns: repeat(2,1fr); }
+    .notices          { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Nu Skin × Sunright®</div>
+  <div class="hero-brand">Sunright®</div>
+  <div class="hero-subtitle">三效輕透防曬精華</div>
+  <div class="spf-badge">SPF 50+&nbsp;&nbsp;·&nbsp;&nbsp;PA++++</div>
+  <div class="cert-pills">
+    <span class="cert-pill">韓國官方防曬認證</span>
+    <span class="cert-pill">美白認證</span>
+    <span class="cert-pill">改善皺紋認證</span>
+    <span class="cert-pill">P&K 皮膚臨床研究中心</span>
+  </div>
+  <div class="hero-tagline">不只是防曬，更是一瓶會防曬的精華液</div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-eyebrow">Clinical Results</div>
+    <div class="stats-heading">22位成年女性臨床實測數據</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">+11.6%</div>
+        <div class="stat-label">改善彈性<br>提升緊緻度</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">+23.6%</div>
+        <div class="stat-label">增加<br>肌膚水分</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">+5.6%</div>
+        <div class="stat-label">改善<br>臉頰下垂</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">-7.9%</div>
+        <div class="stat-label">減少<br>眼周皺紋</div>
+      </div>
+    </div>
+    <div class="stats-footnote">2022.01.06 – 2022.02.04 · P&K 皮膚臨床研究中心</div>
+  </div>
+</section>
+
+<!-- THREE DEFENSE -->
+<section class="section">
+  <div class="section-eyebrow">Triple Defense</div>
+  <div class="section-heading">三效防禦，全方位守護肌膚</div>
+  <div class="divider-rose"></div>
+  <div class="section-desc">一般防曬只擋紫外線。這款同時對抗紫外線、紅外線熱傷害與氧化壓力，並在防曬的同時進行抗老保養。</div>
+  <div class="defense-grid">
+    <div class="defense-card" data-num="1">
+      <div class="defense-tag">Defense 01</div>
+      <div class="defense-title">紫外線＋紅外線阻隔</div>
+      <div class="defense-desc">高效UVA/UVB防禦，同時阻擋紅外線（IR）熱傷害。市面少見的全波段防護，真正防曬也防熱。</div>
+    </div>
+    <div class="defense-card" data-num="2">
+      <div class="defense-tag">Defense 02</div>
+      <div class="defense-title">抗老保養</div>
+      <div class="defense-desc">腺苷＋兩種抗衰老胜肽，對抗紫外線與紅外線引起的老化，改善彈性、緊緻度與眼周皺紋。</div>
+    </div>
+    <div class="defense-card" data-num="3">
+      <div class="defense-tag">Defense 03</div>
+      <div class="defense-title">抗氧化防護</div>
+      <div class="defense-desc">花青素配方（山桑子＋黑加侖子＋黑米），通過DPPH活性氧清除測試認證，修護紫外線引起的肌膚氧化。</div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients-section">
+  <div class="ingredients-inner">
+    <div class="section-eyebrow">Key Ingredients</div>
+    <div class="section-heading">養膚關鍵成分</div>
+    <div class="divider-rose"></div>
+    <div class="section-desc">結合高階防曬技術與保養活性成分，通過韓國官方三項功能性化妝品認證。</div>
+    <div class="ing-grid">
+      <div class="ing-cell">
+        <div class="ing-index">01</div>
+        <div>
+          <div class="ing-name">兩種高階化學防曬劑</div>
+          <div class="ing-effect">廣效覆蓋UVA＋UVB，穩定度極高，是質地輕薄、不泛白、好推開的根本原因。</div>
+        </div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-index">02</div>
+        <div>
+          <div class="ing-name">腺苷（Adenosine）</div>
+          <div class="ing-effect">韓國食藥署官方認可抗皺成分，促進膠原蛋白合成，改善細紋與肌膚彈性。</div>
+        </div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-index">03</div>
+        <div>
+          <div class="ing-name">菸鹼醯胺（Niacinamide）</div>
+          <div class="ing-effect">抑制黑色素傳遞、提亮均勻膚色、縮小毛孔、抗炎，官方認證美白有效成分。</div>
+        </div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-index">04</div>
+        <div>
+          <div class="ing-name">紫色花青素配方</div>
+          <div class="ing-effect">山桑子、黑加侖子、黑米三重萃取，豐富抗氧化成分，減低肌膚氧化損傷。</div>
+        </div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-index">05</div>
+        <div>
+          <div class="ing-name">維他命E（Tocopherol）</div>
+          <div class="ing-effect">抗氧化保護，對抗自由基傷害，同步提供保濕修護效果。</div>
+        </div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-index">06</div>
+        <div>
+          <div class="ing-name">透明膠囊技術</div>
+          <div class="ing-effect">防曬成分封裝於膠囊中，推開後瞬間緊貼肌膚，呈現精華液般的水潤觸感。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXTURE -->
+<section class="texture-section">
+  <div class="texture-inner">
+    <div class="section-eyebrow">Texture & Feel</div>
+    <div class="section-heading">與一般防曬截然不同的膚感</div>
+    <div class="divider-rose"></div>
+    <div class="texture-features">
+      <div class="texture-item">
+        <div class="texture-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 12s1 2 3 2 3-2 3-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <div class="texture-name">零泛白 · 無厚重感</div>
+        <div class="texture-desc">化學性防曬劑配方，推開即融入肌膚，完全看不出有擦防曬，適合男女通用。</div>
+      </div>
+      <div class="texture-item">
+        <div class="texture-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 7 4 9 4 14a8 8 0 0016 0c0-5-4-7-8-12z"/></svg>
+        </div>
+        <div class="texture-name">精華液般水潤</div>
+        <div class="texture-desc">用完手不澀，質地水感輕薄，不悶不油，上妝後妝效持久不泛油光。</div>
+      </div>
+      <div class="texture-item">
+        <div class="texture-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s-8-5-8-12a8 8 0 0116 0c0 7-8 12-8 12z"/><path d="M12 11v4M10 13h4"/></svg>
+        </div>
+        <div class="texture-name">易洗卸 · 好清潔</div>
+        <div class="texture-desc">一般洗臉即可卸除，無需額外卸妝步驟，省時省力，日常使用無負擔。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE -->
+<section class="usage-section">
+  <div class="usage-inner">
+    <div class="usage-eyebrow">How To Use</div>
+    <div class="usage-heading">使用方式</div>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-text">每次用量約1ml，全臉約一個10元硬幣大小</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-text">護膚最後一步、化妝前使用，均勻推開全臉</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-text">接觸陽光前20–30分鐘塗抹，確保充足防曬效果</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-text">記得頸部、耳後等容易忽略的部位也要補擦</div>
+      </div>
+    </div>
+    <div class="notices">
+      <div class="notice">
+        <div class="notice-text">⚠ 請勿搖動或攪拌產品。紫色膠囊對外部環境敏感，顆粒聚集可能導致無法正常泵送。</div>
+      </div>
+      <div class="notice">
+        <div class="notice-text">⚠ 防曬成分如沾上衣物可能不易清除或導致衣物變色，使用時請留意。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Sunright®</div>
+  <div class="footer-sub">Nu Skin · Triple Defense Sun Master · SPF50+ PA++++</div>
+</footer>
+
+</body>
+</html>
